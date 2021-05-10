@@ -1,4 +1,4 @@
--- Creación de la tabla que almacenara los Tweets recibidos
+-- CreaciÃ³n de la tabla que almacenara los Tweets recibidos
 CREATE TABLE Tweets
 (
  id bigint,
@@ -23,11 +23,11 @@ CREATE TABLE Tweets
 )
 
 
-
+--------------------------------------------------------------------------------------------------------------------------------------------------
 --#### DIMENSIONES que se usaran para modelar los tweets y visualizarlos en Power BI####--
 
---Dim_Terminos contendra los terminos de búsqueda que estamos mandando a buscar en el script python,
---Los indices los creamos en múltiplos de dos dado que al momento de relacionarlos, se los asociara con la suma de sus términos
+--Dim_Terminos contendra los terminos de bÃºsqueda que estamos mandando a buscar en el script python,
+--Los indices los creamos en mÃºltiplos de dos dado que al momento de relacionarlos, se los asociara con la suma de sus tÃ©rminos
 with Dim_Terminos as(
 SELECT 1  as Id, 'MSPowerBI'      AS Term union all 
 SELECT 2  as Id, 'qlik'      AS Term union all 
@@ -36,11 +36,11 @@ select * into Dim_Terminos from Dim_Terminos
 
 select * from Dim_Terminos;
 
-
--- Creamos una tabla que va a tener las combinaciones posibles de términos de búsqueda, esto dado que la vamos a necesitar
--- para consolidar la relación en power bi de los terminos buscados. Recordar que varios términos pueden ser mencionados 
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+-- Creamos una tabla que va a tener las combinaciones posibles de tÃ©rminos de bÃºsqueda, esto dado que la vamos a necesitar
+-- para consolidar la relaciÃ³n en power bi de los terminos buscados. Recordar que varios tÃ©rminos pueden ser mencionados 
 -- en un mismo tweet.
--- Cuando encuentres terminos combinados, su Id será la suma de los Id principales de cada término
+-- Cuando encuentres terminos combinados, su Id serÃ¡ la suma de los Id principales de cada tÃ©rmino
 with nums as
 (
   select 1 as id
@@ -107,15 +107,9 @@ from nums t
  valor = 1
 option (maxrecursion 0)
 
-select * from F_MtM_Terms;
-select * from Dim_AllTerminos;
-go
+-------------------------------------------------------------------------------------------------------------------------
 
-drop table F_MtM_Terms
-
-
-
--- Creamos una vista que servirá como tabla de hechos con la información relevante para modelar en Microsoft power BI
+-- Creamos una vista que servirÃ¡ como tabla de hechos con la informaciÃ³n relevante para modelar en Microsoft power BI
 create view v_fact_tweets as
 SELECT 
   country, favorite_count, followers_count,friends_count
@@ -135,11 +129,4 @@ SELECT
 FROM 
   Tweets
   ;
-  drop view v_fact_tweets
-  select * from v_fact_tweets
-
-  select * from Tweets
-
-  delete from Tweets
-
-  select * from v_fact_tweets
+  
