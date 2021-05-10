@@ -120,8 +120,8 @@ SELECT
   ,case when score_with_stopwords < -0.7 then 'NEGATIVE'
         when score_with_stopwords between -0.71 and 0.5 then 'NEUTRAL' then 'NEUTRAL'
 		else 'POSITIVE' end as sentimiento_with_stopword
-  ,case when score_without_stopwords < 0.4 then 'NEGATIVE'
-        when score_without_stopwords < 0.6 then 'NEUTRAL'
+  ,case when score_without_stopwords < -0.7 then 'NEGATIVE'
+        when score_without_stopwords between -0.71 and 0.5 then 'NEUTRAL'
 		else 'POSITIVE' end as sentimiento_without_stopword
   , freg
   , iif([text] like '%MSPowerBI%' or [text] like '%PowerBI%',1,0) 
