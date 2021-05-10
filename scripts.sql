@@ -117,8 +117,8 @@ SELECT
   ,lang,latitude,longitude,retweet_count,screen_name as UserName
   ,text ,text_with_stopwords ,text_without_stopwords
   ,score_with_stopwords,score_without_stopwords
-  ,case when score_with_stopwords < 0.4 then 'NEGATIVE'
-        when score_with_stopwords < 0.6 then 'NEUTRAL'
+  ,case when score_with_stopwords < -0.7 then 'NEGATIVE'
+        when score_with_stopwords between -0.71 and 0.5 then 'NEUTRAL' then 'NEUTRAL'
 		else 'POSITIVE' end as sentimiento_with_stopword
   ,case when score_without_stopwords < 0.4 then 'NEGATIVE'
         when score_without_stopwords < 0.6 then 'NEUTRAL'
