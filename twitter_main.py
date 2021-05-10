@@ -56,12 +56,14 @@ engine = create_engine("mssql+pyodbc:///?odbc_connect={}".format(params))
 
 #create_engine("mssql+pyodbc://MyDbUser:MyPassword@MySQLServer/TwitterDB?driver=SQL+Server+Native+Client+11.0")
 
-#Define after how many twitts we do a insert in the data base.
+#Definimos una variable que almacenara un número determinado de tweets antes de insertarlos en la base de datos.
 bufferSize = 5
 
-#Defina an array to store the tweets readed from the stream api
+#Definimos un arreglo que almacenara los tweets recibidos desde la api stremaing de tweeter
 twittsBuffer = []
 
+# Dado que el texto completo del tweet en el json por lo general viene en la clave full_text, creamos una función que mande a buscar esta clave en el .json
+# y la devolvemos para procesarla.
 def deep_search(needles, haystack):
     found = {}
     if type(needles) != type([]):
@@ -222,7 +224,7 @@ class StdOutListener(StreamListener):
     def on_error(self, status):
         print(status)
 #--------------------------------------------------------------------------------
-#Define a main function, the entry point of the program
+#Definimos una función main como punto de entrada del programa
 if __name__ == '__main__':
     #This object handles Twitter authetification and the connection to Twitter Streaming API
     myListener = StdOutListener()
