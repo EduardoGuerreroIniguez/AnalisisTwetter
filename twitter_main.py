@@ -24,18 +24,18 @@ sentiment = SentimentIntensityAnalyzer()
 
 
 #Twitter APPI Credentials
-cKey = "CC0P74v1SgBb1aJguny4UrAie"
-cSecret = "bVDYzlBkAfV8SBwbuY8UWbMbgbEcxX8W8jjWZoBq9rqEzgg09z"
-aToken = "1366780060083105796-zXYIYf8tnXWjoJQfKrdsGUe2WXOjgv"
-aTokenSecret = "zLL1x796LiVxAxBUHrMt5ju9Lu9coESVytUQsWSGsRknN"
+cKey = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+cSecret = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+aToken = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+aTokenSecret = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
 
 # Get credentials DB
 
 
-database = "hra_prod"
-username = "evolution"
-password = "evolution"
-server = "localhost"
+database = "XXXXXXXXXXXXXXX"
+username = "XXXXXXXXXXXXXX"
+password = "XXXXXXXXXXXXXXXX"
+server = "XXXXXXXXXXXXXXXX"
 
 
 params = urllib.parse.quote_plus("DRIVER={SQL Server Native Client 11.0};"
