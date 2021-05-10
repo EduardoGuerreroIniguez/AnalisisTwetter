@@ -110,6 +110,7 @@ option (maxrecursion 0)
 -------------------------------------------------------------------------------------------------------------------------
 
 -- Creamos una vista que servirá como tabla de hechos con la información relevante para modelar en Microsoft power BI
+-- Nota: al usar vader para análisis de sentimientos, este nos devuelve un score entre -1 y 1, siendo los valores más cercano a menos 1 clasificados como Negativos, los valores cercanos a 0 como neutrales y los valores cercanos a 1 como positivos
 create view v_fact_tweets as
 SELECT 
   country, favorite_count, followers_count,friends_count
